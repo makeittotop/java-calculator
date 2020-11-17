@@ -1,6 +1,5 @@
 language: java
 jdk:
-- oraclejdk8
 - openjdk8
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -19,5 +18,6 @@ deploy:
   acl: ''
   on:
     repo: makeittotop/java-calculator
+    branch: master
   skip_cleanup: 'true'
   region: ap-southeast-2
