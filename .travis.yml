@@ -1,11 +1,23 @@
 language: java
 jdk:
-  - oraclejdk8
-  - openjdk8
+- oraclejdk8
+- openjdk8
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+deploy:
+  provider: s3
+  access_key_id: AKIAZAZLUJKPAYCGIOGX
+  secret_access_key:
+    secure: Ypv6js0DPb2BdEQkejyrDxFb4t8PawxH2Pzln2DEJ5duFe6yBltmiizoPtYparqA/cEmvYkJd8fcb2e4a6VmTebSFe7TFqW6D/dKFmMt8IMb/Cdc30nI8dX2JsGzWXvARAsbEL4N5XlW9Av0J7uWDuZ1BApQzexv06J5hpvYAcdbunYewIO9c3PdxC3iUb8xn7JN/ViFlGoGSpz4uZxbEu4GcKtGI0Dx1/rxzfCE3INIr3Cb9weVRz4aSrkPE3xw3nv/CEdSbx17yQqXJX6vxW1ZOI9cwjFU+BKoMKDcJrr/hGEezp/b+jk7m5FaJs+9TOJHHI5GYh0XtJWglK/0fO9TLugMIr+++WnKZ214BoFldr6OFUbQ8/96/2yc52rW3joV75i1DBLEiszbEZJGuN7FCM5KgBlxWc65KNMfZKftiyIbELZGpubVN1UGtNCIr4P12oV7grxMAjmMvA0HFCxyCxC/RsF4quRgT2qMduquvPNSyIjUtgjTTqDV4HEBO9L2m5iT5XeuQkXYCd66SIZhGJYmCHYywYhe0Qq7iEQB3fVCMBVeRcV+2MYkSORekK7qjba/Fr+eaSQ7EYpi7L2LA3i8S8CfCS1VSobxrIbykRHJk8+W762yzevtgaLanEIcgksxM265a1f5oVFvvZIH0elK7oejB4VPm5ZRhVI=
+  bucket: makeittotop-java-calculator-build-artifacts
+  upload-dir: artifacts
+  acl: ''
+  on:
+    repo: makeittotop/java-calculator
+  skip_cleanup: 'true'
+  region: ap-southeast-2
