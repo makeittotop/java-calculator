@@ -18,6 +18,6 @@ deploy:
   acl: ''
   on:
     repo: makeittotop/java-calculator
-    all_branches: true
+    branch: master
   skip_cleanup: 'true'
   region: ap-southeast-2
